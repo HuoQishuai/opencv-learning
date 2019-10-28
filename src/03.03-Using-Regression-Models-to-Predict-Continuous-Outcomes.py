@@ -26,7 +26,9 @@ boston.data.shape
 boston.target.shape
 
 #%%
-linreg = linear_model.LinearRegression()
+# linreg = linear_model.LinearRegression()
+linreg = linear_model.Lasso()
+# linreg = linear_model.RidgeRegression()
 
 #%%
 X_train, X_test, y_train, y_test = modsel.train_test_split(boston.data, boston.target, 
@@ -64,3 +66,6 @@ scorestr = r'R$^2$ = %.3f' % linreg.score(X_test, y_test)
 errstr = 'MSE = %3.f' % metrics.mean_squared_error(y_test, y_pred)
 plt.text(-5, 50, scorestr, fontsize = 12) 
 plt.text(-5, 45, errstr, fontsize = 12)
+
+
+# %%
